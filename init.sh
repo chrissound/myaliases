@@ -1,0 +1,10 @@
+alias dkr='docker'
+alias dkrc='docker-compose'
+alias sudo='sudo '
+alias docker='sudo docker'
+alias rg='rg --no-ignore-vcs'
+alias emc='emacsclient -c'
+alias emct='emacsclient -c -nw'
+alias gith='git --git-dir=$HOME/.git2/ --work-tree=$HOME'
+alias githh='git --git-dir=/home/chris/chrishomeold/home/chris/.git2 --work-tree=/home/chris/chrishomeold/home/chris/'
+
