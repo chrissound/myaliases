@@ -23,7 +23,10 @@ beepboop () {
 
 openFzfDirectoryHistory() {
   # Sort by frequency
-  RBUFFER=$(cat .directory_history | sort | uniq -c | sort -rn | sed -e 's/\s*[0-9]*\s*//' | fzf --height 40%)
+  RBUFFER=$(cat .directory_history | sort | uniq -c | sort -rn | sed -e 's/\s*[0-9]*\s*//' | \
+	  fzf --height 40% \
+           	--bind 'ctrl-y:execute-silent(echo -n {} | xclip)+abort'
+  )
 
   zle redisplay
 	zle end-of-line;
