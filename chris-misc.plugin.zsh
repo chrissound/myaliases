@@ -14,7 +14,7 @@ alias grep="rg"
 alias docker="sudo docker"
 alias docker-compose="sudo docker-compose"
 alias fp="clipboard_copyPath"
-alias ppl="pitangaLog | less"
+alias ppl="pitangaLog | less -R"
 alias ppr="pitangaResumeTask"
 
 beepboop () {
