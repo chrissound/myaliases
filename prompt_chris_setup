@@ -82,7 +82,7 @@ prompt_context() {
 prompt_dir() {
   cols=$(tput cols)
   terminalWidth=$((cols-20))
-  alcPrompt=$(alcPrompt $PWD -l "$terminalWidth")
+  alcPrompt=$(sodiumSierraStrawberry $PWD -l "$terminalWidth")
   prompt_segment 0 47 "$alcPrompt"
 }
 

@@ -5,19 +5,37 @@
 #source /home/chris/dotfiles/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export TERM=xterm-256color
 
+alias md="mkdir"
+alias mf="touch"
+
 alias vim="nvim"
 alias emacsp="emacsclient -t"
 alias l="ll"
 alias ll="exa -l --group-directories-first --sort=extension"
-alias r="ranger"
+alias r='ranger --choosedir=/tmp/.rangerdir; LASTDIR=`cat /tmp/.rangerdir`; cd "$LASTDIR"'
 alias grep="rg"
 alias docker="sudo docker"
 alias docker-compose="sudo docker-compose"
 alias fp="clipboard_copyPath"
-alias ppl="pitangaLog | less -R"
-alias ppr="pitangaResumeTask"
+#pitanga
+alias ptet="$EDITOR tasks.txt"
+alias ptel="$EDITOR log.json"
+alias ptll="pitanga log | less -R"
+alias ptl="pitanga log --first=3 "
+pts () {
+  echo "$#"
+  if [[ "$#" = 0 ]]; then
+    pitanga start "$(cat tasks.txt | fzf)" ""
+  else
+    pitanga start "$(cat tasks.txt | fzf)" "$@"
+  fi
+};
+alias ptsp="pitanga stop"
+ptr () { pitanga resume --accept-suggestion="$(pitanga resume --suggestions | tac | fzf)" }
+alias ptrl="pitanga resume" 
 
 beepboop () {
+  if [ -z "$IGNORE_HIST_CHRIS" ] || return 0
   echo -n "$1" >> .directory_history
 }
 
@@ -46,8 +64,9 @@ openFzfDirectoryHistoryUnsorted() {
 	zle accept-line;
 }
 
-chpwd() clear
-chpwd() ll
+chpwd() {
+    ll
+}
 
 cdUpAbcxyz() {
   RBUFFER="cd ../"
