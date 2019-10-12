@@ -1,1 +1,3 @@
-source <(kubectl completion zsh)
+if which kubectl; then
+    source <(kubectl completion zsh)
+fi
