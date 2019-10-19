@@ -7,4 +7,4 @@ alias emct='emacsclient -c -nw'
 alias gith='git --git-dir=$HOME/.git2/ --work-tree=$HOME'
 alias githh='git --git-dir=/home/chris/chrishomeold/home/chris/.git2 --work-tree=/home/chris/chrishomeold/home/chris/'
 alias tree='exa --tree'
-
+alias cat='bat --plain --paging=never'

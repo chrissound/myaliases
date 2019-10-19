@@ -133,7 +133,12 @@ build_prompt() {
   #prompt_git
   prompt_end
 
-  echo $PWD > /tmp/lastPwd
+  if [ -d "/tmp2" ] 
+  then
+    echo $PWD > /tmp2/lastPwd
+  else
+    echo $PWD > /tmp/lastPwd
+  fi
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
