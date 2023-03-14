@@ -149,6 +149,10 @@ build_prompt() {
   if [ -d "/tmp2" ] 
   then
     echo $PWD > /tmp2/lastPwd
+    # echo $PWD >> /tmp2/lastPwdRolling
+    sed -i "1i$PWD" /tmp2/lastPwdRolling
+    head -100 /tmp2/lastPwdRolling > /tmp2/lastPwdRolling.tmp
+    mv /tmp2/lastPwdRolling.tmp /tmp2/lastPwdRolling
   else
     echo $PWD > /tmp/lastPwd
   fi
