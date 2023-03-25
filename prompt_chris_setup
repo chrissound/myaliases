@@ -49,7 +49,7 @@ prompt_context() {
     elif [[ "$HOST" == "XenonKiloCranberry" ]]; then
       prompt_segment 47 default "%(!.%{%F{black}%}.)%m"
     else
-      prompt_segment 73 default "%(!.%{%F{black}%}.)%m"
+      prompt_segment 49 black "%(!.%{%F{black}%}.)%m"
     fi
   fi
 }
