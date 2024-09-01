@@ -15,7 +15,12 @@ alias githh='git --git-dir=/home/chris/chrishomeold/home/chris/.git2 --work-tree
 alias tree='exa --tree'
 alias cat='bat --plain --paging=never'
 alias tmp='cd ~/temp/wiptemp; dirInt="$(($(ls -1tr | sort -n | tail -n 1) +1))"; mkdir $dirInt && cd $dirInt;'
-alias tmps='cd $(fd . ~/temp/wiptemp/ -d 1 | alcSortPath date | tail -n 10 | tac | fzf --height 40% --preview "exa -l --group-directories-first --sort=extension {}")'
+
+tmpfs() {
+  amount=${1:-25}  # Set amount to $1 or default to 10 if $1 is not provided
+
+  cd "$(fd . ~/temp/wiptemp/ -d 1 | alcSortPath date | tail -n "$amount" | tac | fzf --height 40% --preview "exa -l --group-directories-first --sort=extension {}")"
+}
 
 fileCount()
 {
